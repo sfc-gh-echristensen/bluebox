@@ -1,0 +1,15 @@
+services:
+  postgres:
+    build: .
+    container_name: kcdc-pg-everything
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: bluebox
+      POSTGRES_PASSWORD: kcdc
+    volumes:
+      - pgdata:/var/lib/postgresql
+    shm_size: 256m
+
+volumes:
+  pgdata:
